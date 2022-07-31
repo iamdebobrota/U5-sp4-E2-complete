@@ -26,6 +26,7 @@ const Button = ({
       variant={variant}
       disabled={disabled}
       onClick={onClick}
+      data-testid='button'
     >
       {leftIcon}
       {children}

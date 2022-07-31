@@ -9,7 +9,7 @@ type AvatarProps = {
 const Avatar = ({ name, src, size = "sm" }: AvatarProps) => {
   const strgs = name.split(" ");
   return (
-    <AvatarWrapperStyled hasSrc={!!src} size={size} name={name}>
+    <AvatarWrapperStyled hasSrc={!!src} size={size} name={name} data-testid='avatar'>
       {src ? (
         <AvatarStyled src={src} alt={name} />
       ) : (

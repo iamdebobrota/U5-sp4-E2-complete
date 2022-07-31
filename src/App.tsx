@@ -1,18 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaClipboard } from "react-icons/fa";
 import { ComponentWrapper, VariantWrapper } from "./App.styled";
 import { Avatar } from "./components/Avatar";
 import { Button } from "./components/Button";
+import {Pagination}  from "./components/Pagination";
 
 function App() {
+
+
+
+let [pg, setpg] = useState(0);
+let onPageChange = (e:any) => {
+  setpg(e);
+}
+
+
+
   return (
     <div className="App">
       {/* Different Buttons */}
       <ComponentWrapper>
-        <h3>Buttons</h3>
+        <h3 >Buttons</h3>
         <VariantWrapper>
           <h4>Variants</h4>
-          <Button variant="primary">Hello</Button>
+          <Button variant="primary" data-testid="varient-btn">Hello</Button>
           <Button variant="secondary">Hello</Button>
         </VariantWrapper>
         <br />
@@ -66,6 +77,17 @@ function App() {
           <Avatar size="lg" name="Ritesh Firodiya" />
         </VariantWrapper>
       </ComponentWrapper>
+{/* 
+      <Pagination
+        count={count}
+        totalPages={totalPages}
+        updateCurrentPage={updateCurrentPage}
+        currentPage={currentPage}
+      /> */}
+
+<Pagination count={10} currentPage={pg} updateCurrentPage={onPageChange} />
+
+
     </div>
   );
 }
